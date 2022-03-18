@@ -1,0 +1,22 @@
+/* Write your code here. */
+.listItem {
+  background-color: #9796f0;
+  border-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  margin: 12px;
+}
+.emoji {
+  height: 100px;
+  width: 100px;
+}
+.button {
+  border-radius: 100px;
+  background-color: transparent;
+  border-width: 0px;
+}
