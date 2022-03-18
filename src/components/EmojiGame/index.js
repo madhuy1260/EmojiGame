@@ -18,7 +18,7 @@ import WinOrLoseCard from '../WinOrLoseCard'
 import './index.css'
 
 class EmojiGame extends Component {
-  state = {isGameProgress: false, scored: 0, topScore: 0}
+  state = {isGameProgress: false, scored: 0, topScore: 0,clickedEmojis:[]}
 
   getEmojiCardDisplay = () => {
     const {emojisList} = this.props
@@ -26,10 +26,22 @@ class EmojiGame extends Component {
     return (
       <ul className="ulContainer">
         {emojisList.map(each => (
-          <EmojiCard emojiDetails={each} key={each.id} />
+          <EmojiCard
+            emojiDetails={each}
+            key={each.id}
+            EmojiClickCountScore={this.EmojiClickCountScore}
+          />
         ))}
       </ul>
     )
+  }
+
+  EmojiClickCountScore = id =>{
+    const {emojisList} = this.props
+    const {clickedEmojis} = this.state
+    if (clickedEmojis.include(id)) {
+        
+    }
   }
 
   playAgainClick = () => {
@@ -50,7 +62,11 @@ class EmojiGame extends Component {
     const {isGameProgress, scored, topScore} = this.state
     return (
       <div className="bg">
-        <NavBar scored={scored} topScore={topScore} />
+        <NavBar
+          scored={scored}
+          topScore={topScore}
+          isGameProgress={isGameProgress}
+        />
         <div className="bottomPart">
           {isGameProgress
             ? this.getEmojiCardDisplay()
